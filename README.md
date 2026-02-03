@@ -1,8 +1,14 @@
-<div style="text-align: center;">
-║          ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO            ║
-║                    Versión 2.1 - Febrero 2025                               ║
-╚══════════════════════════════════════════════════════════════════════════════╝
-</div>
+<div style="h1" align="center">
+
+         ═══════════════════════════════════════════════════════════════════════════════    
+        ║          ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO            ║
+        ║                    Versión 2.1 - Febrero 2025                               ║
+        ╚═════════════════════════════════════════════════════════════════════════════╝
+![Quantum Badge](https://img.shields.io/badge/Quantum-Smopsys-black)
+![Python Version](https://img.shields.io/badge/Python-3.8%2B-olive)
+![License](https://img.shields.io/badge/License-MIT%202.0-orange)
+![Algorithm](https://img.shields.io/badge/Quantum-Algorithm-darkgrey)
+ </div>
 
 📦 CONTENIDO DEL PAQUETE:
 
@@ -67,13 +73,28 @@ NIVEL 3 (Isomorfismo Físico):
 
 📊 SALIDA TÍPICA:
 
+(base) user@user-bash:~/simons$ /home/user/simons/env/bin/python /home/user/simons/simons_complete.py
+
+████████████████████████████████████████████████████████████████████████████████
+  SIMON MEJORADO: MOMENTO, FASE DE BERRY Y CONSERVACIÓN H7
+████████████████████████████████████████████████████████████████████████████████
+
 [ESTADOS DE MOMENTO ENTRELAZADOS (TABLA H7)]
  n  Momento  Complemento H7 Estado 2-1  E_Metriplética  Fase Berry (rad) Binario |x⟩
  1        1               6     (1, 0)          0.4783            1.2650         001
- ...
+ 2        2               5     (1, 0)          0.4609            2.1626         010
+ 3        3               4     (1, 0)          0.4513            3.0602         011
+ 4        4               3     (0, 1)          0.4513            3.2230         100
+ 5        5               2     (0, 1)          0.4609            4.1206         101
+ 6        6               1     (0, 1)          0.4783            5.0182         110
+
 [RESULTADO SIMON]
 Período Real: 7 (111) | Estimado: 7 (111)
 Éxito: ✓ | Confianza: 100.00%
+
+[MÉTRICAS FINALES]
+Fase de Berry Promedio: 3.1416 rad
+Entropía de Entrelazamiento: -0.0000 bits
 
 ⚙️ REQUISITOS:
 
