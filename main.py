@@ -1,41 +1,54 @@
 #!/usr/bin/env python3
 import argparse
 import sys
-import subprocess
 import os
+import pytest
+
+# Importar funcionalidades directamente para evitar subprocess
+try:
+    from simons_complete import main as run_simon
+    from simon_h7_holography import run_holography
+except ImportError:
+    # Fallback para cuando se ejecuta localmente sin estar instalado
+    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    from simons_complete import main as run_simon
+    from simon_h7_holography import run_holography
 
 def run_algorithm():
     """Ejecuta el algoritmo de Simon H7 completo."""
     print("\n🚀 Iniciando Algoritmo de Simon H7...")
-    result = subprocess.run([sys.executable, "simons_complete.py"], check=False)
-    if result.returncode != 0:
-        print("\n❌ Error al ejecutar el algoritmo.")
-    sys.exit(result.returncode)
+    try:
+        run_simon()
+    except Exception as e:
+        print(f"\n❌ Error al ejecutar el algoritmo: {e}")
+        sys.exit(1)
 
 def run_viz():
     """Genera la visualización holográfica unificada."""
     print("\n🌌 Generando Visualización Holográfica H7...")
-    result = subprocess.run([sys.executable, "simon_h7_holography.py"], check=False)
-    if result.returncode == 0:
+    try:
+        run_holography()
         print("\n✨ Visualización completada.")
         print("🔗 Abre Simon_H7_Holografia_Interactiva.html para ver los resultados.")
-    else:
-        print("\n❌ Error al generar la visualización.")
-    sys.exit(result.returncode)
+    except Exception as e:
+        print(f"\n❌ Error al generar la visualización: {e}")
+        sys.exit(1)
 
 def run_tests():
     """Ejecuta la suite de pruebas Pytest."""
     print("\n🧪 Ejecutando pruebas de validación H7...")
-    env = os.environ.copy()
-    env["PYTHONPATH"] = "."
-    result = subprocess.run([sys.executable, "-m", "pytest", "tests/test_simons.py"], env=env, check=False)
-    sys.exit(result.returncode)
+    # Ejecutar pytest directamente desde Python
+    retcode = pytest.main(["tests/test_simons.py"])
+    sys.exit(retcode)
 
 def show_cs():
     """Muestra el código de referencia en C#."""
     print("\n📋 Código de Referencia C# (AndroidHtmlUi):")
     try:
-        with open("simon_h7_interface.cs", "r") as f:
+        # Intentar encontrar el archivo en el mismo directorio que este script
+        base_path = os.path.dirname(os.path.abspath(__file__))
+        cs_path = os.path.join(base_path, "simon_h7_interface.cs")
+        with open(cs_path, "r") as f:
             print(f.read())
     except FileNotFoundError:
         print("❌ Archivo simon_h7_interface.cs no encontrado.")
