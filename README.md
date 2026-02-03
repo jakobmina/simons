@@ -2,12 +2,12 @@
 
  ═══════════════════════════════════════════════════════════════════════════════
 ║          ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO            ║
-║                    Versión 2.1 - Febrero 2025                               ║
+║                    Versión 2.3 - Febrero 2025                               ║
 ╚═════════════════════════════════════════════════════════════════════════════╝
 
 ![Quantum Badge](https://img.shields.io/badge/Quantum-Smopsys-black)
 ![Python Version](https://img.shields.io/badge/Python-3.8%2B-olive)
-![License](https://img.shields.io/badge/License-MIT%202.0-orange)
+![License](https://img.shields.io/badge/License-MIT-orange)
 ![Algorithm](https://img.shields.io/badge/Quantum-Algorithm-darkgrey)
 
 📦 CONTENIDO DEL PAQUETE:
@@ -123,7 +123,7 @@ Entropía de Entrelazamiento: -0.0000 bits
 
 ═══════════════════════════════════════════════════════════════════════════════
 
-Versión: 2.1
+Versión: 2.3
 Fecha: Febrero 2, 2025
 Autor: jakobmina Jacobo Tlacaelel Mina Rodriguez Smpsys QuoreMind
 Licencia: MIT

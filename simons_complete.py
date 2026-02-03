@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════════════════════╗
-║                 ALGORITMO DE SIMON CUÁNTICO MEJORADO v2.0                    ║
+║                 ALGORITMO DE SIMON CUÁNTICO MEJORADO v2.3                    ║
 ║             Integración Rigurosa: Paridad + Quasiperiodismo + Simon         ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
@@ -572,7 +572,7 @@ def experimento_simon_mejorado(
 # ENTRADA PRINCIPAL
 # ═══════════════════════════════════════════════════════════════════════════
 
-if __name__ == '__main__':
+def main():
     print("\n" + "█"*80)
     print("  SIMON MEJORADO: MOMENTO, FASE DE BERRY Y CONSERVACIÓN H7")
     print("█"*80)
@@ -618,3 +618,6 @@ if __name__ == '__main__':
         print(f"\n[MÉTRICAS FINALES]")
         print(f"Fase de Berry Promedio: {fase_media:.4f} rad")
         print(f"Entropía de Entrelazamiento: {red.medir_entrelazamiento():.4f} bits")
+
+if __name__ == '__main__':
+    main()

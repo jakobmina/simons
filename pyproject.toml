@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simon-h7"
+version = "2.3.0"
+authors = [
+  { name="Jacobo Tlacaelel Mina Rodriguez", email="contact@smpsys.com" },
+]
+description = "Algoritmo de Simon Cuántico Mejorado - Sistema Metriplético H7"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "numpy",
+    "pandas",
+    "plotly",
+    "Pillow",
+    "pytest",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jakobmina/simon-h7"
+
+[project.scripts]
+simon-h7 = "main:main"
+
+[tool.setuptools]
+py-modules = ["main", "simons_complete", "simon_h7_holography"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"*" = ["simon_h7_interface.cs", "walkthrough.md", "CHANGELOG.md", "LICENSE"]
