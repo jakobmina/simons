@@ -72,7 +72,7 @@ NIVEL 3 (Isomorfismo Físico):
   ✓ Fase de Berry: Refleja la topología del ciclo de Hilbert.
 
 📊 SALIDA TÍPICA:
-
+```text
 (base) user@user-bash:~/simons$ /home/user/simons/env/bin/python /home/user/simons/simons_complete.py
 
 ████████████████████████████████████████████████████████████████████████████████
@@ -95,7 +95,7 @@ Período Real: 7 (111) | Estimado: 7 (111)
 [MÉTRICAS FINALES]
 Fase de Berry Promedio: 3.1416 rad
 Entropía de Entrelazamiento: -0.0000 bits
-
+```
 ⚙️ REQUISITOS:
 
 - Python 3.12+ (Recomendado)
