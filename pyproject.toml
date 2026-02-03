@@ -3,10 +3,10 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "simon-h7"
+name = "simons"
 version = "2.3.0"
 authors = [
-  { name="Jacobo Tlacaelel Mina Rodriguez", email="contact@smpsys.com" },
+  { name="Jacobo Tlacaelel Mina Rodriguez", email="jakocrazykings@gmail.com" },
 ]
 description = "Algoritmo de Simon Cuántico Mejorado - Sistema Metriplético H7"
 readme = "README.md"
@@ -26,10 +26,10 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/jakobmina/simon-h7"
+"Homepage" = "https://github.com/jakobmina/simons"
 
 [project.scripts]
-simon-h7 = "main:main"
+simons = "main:main"
 
 [tool.setuptools]
 py-modules = ["main", "simons_complete", "simon_h7_holography"]
