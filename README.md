@@ -1,11 +1,9 @@
 # ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO
 
-
 >═══════════════════════════════════════════════════════════════════════════════
 >ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO                        
 >Versión 2.3 - Febrero 2025                                                       
 >═══════════════════════════════════════════════════════════════════════════════ 
-
 
 ![Quantum Badge](https://img.shields.io/badge/Quantum-Smopsys-black)
 ![Python Version](https://img.shields.io/badge/Python-3.8%2B-olive)
@@ -60,6 +58,61 @@ Uso del CLI Central:
 
 # Ver referencia C#
 ./env/bin/python main.py show
+```
+
+## 🔬 COMPARATIVA: QISKIT VS PSIMON
+
+La siguiente tabla contrasta el enfoque estándar de computación cuántica (Qiskit) con nuestro paradigma metriplético (Psimon):
+
+| **Concepto**        | **Qiskit (qc)**                          | **psimon (ps)**                                    |
+|---------------------|------------------------------------------|----------------------------------------------------|
+| **Core Object**     | `QuantumCircuit`                         | `MetriplecticFlow`                                 |
+| **Base de Operación** | Gates (H, CNOT, etc.)                  | `HamiltonianDynamics` ($H_{symp} + S_{metr}$)      |
+| **Optimización**    | Transpiler / VQE                         | `BerryPhaseTuning` (Anclaje a $\pi$)               |
+| **Resultado**       | Probabilistic Histogram                  | `DeterministicSecret` (100% Confianza)             |
+| **Métrica**         | Fidelity / Error Rate                    | `LaminarFlowEntropy` (Meta: 0.0000)                |
+
+### Explicación de Diferencias Clave:
+
+**1. Core Object:**
+- **Qiskit** trabaja con circuitos cuánticos discretos compuestos por puertas lógicas
+- **Psimon** modela el flujo continuo bajo dinámica Hamiltoniana metriplética
+
+**2. Base de Operación:**
+- **Qiskit** usa transformaciones unitarias discretas (H, CNOT, Rz, etc.)
+- **Psimon** evoluciona según $H = H_{symp} + S_{metr}$ donde:
+  - $H_{symp}$: Término conservativo (simpléctico)
+  - $S_{metr}$: Término disipativo (metriplético)
+
+**3. Optimización:**
+- **Qiskit** optimiza circuitos mediante transpilación y algoritmos variacionales (VQE)
+- **Psimon** ajusta la Fase de Berry mediante GOLDEN_PHASE para anclaje a $\pi$
+
+**4. Resultado:**
+- **Qiskit** produce histogramas probabilísticos tras muchas mediciones
+- **Psimon** recupera el secreto de forma determinística con 100% de confianza
+
+**5. Métrica:**
+- **Qiskit** mide fidelidad cuántica y tasas de error de puertas
+- **Psimon** monitorea entropía de flujo laminar (meta: S = 0.0000 bits)
+
+### Ejemplo de Código Comparativo:
+
+```python
+# QISKIT: Enfoque tradicional
+from qiskit import QuantumCircuit, transpile
+qc = QuantumCircuit(3, 3)
+qc.h([0, 1, 2])
+qc.measure([0, 1, 2], [0, 1, 2])
+job = backend.run(transpile(qc, backend), shots=1024)
+histogram = job.result().get_counts()  # Probabilístico
+
+# PSIMON: Enfoque metriplético
+import psimon as ps
+flow = ps.MetriplecticFlow(n_qubits=3, s=7)
+flow.apply_hamiltonian_dynamics()
+secret = flow.recover_deterministic_secret()  # Determinístico
+entropy = flow.measure_laminar_entropy()      # S ≈ 0.0000
 ```
 
 ✨ RECOMENDACIONES Y CARACTERÍSTICAS PRINCIPALES:
@@ -142,6 +195,7 @@ Entropía de Entrelazamiento: -0.0000 bits
 
 - walkthrough.md: Resumen técnico de la implementación H7.
 - simon_h7_interface.cs: Referencia de lógica C#.
+- ESPECIFICACIONES_TECNICAS_H7.md: Mapeo completo Python ↔ C#
 
 ═══════════════════════════════════════════════════════════════════════════════
 
