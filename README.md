@@ -1,9 +1,11 @@
 # ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO
 
- ═══════════════════════════════════════════════════════════════════════════════
-║          ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO            ║
-║                    Versión 2.3 - Febrero 2025                               ║
-╚═════════════════════════════════════════════════════════════════════════════╝
+
+>═══════════════════════════════════════════════════════════════════════════════
+>ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO                        
+>Versión 2.3 - Febrero 2025                                                       
+>═══════════════════════════════════════════════════════════════════════════════ 
+
 
 ![Quantum Badge](https://img.shields.io/badge/Quantum-Smopsys-black)
 ![Python Version](https://img.shields.io/badge/Python-3.8%2B-olive)
@@ -60,26 +62,46 @@ Uso del CLI Central:
 ./env/bin/python main.py show
 ```
 
-✨ CARACTERÍSTICAS PRINCIPALES:
+✨ RECOMENDACIONES Y CARACTERÍSTICAS PRINCIPALES:
+```bash
+__________________________________________________________________________________________________
+||      Librería       | Alias Sugerido |                    Contexto                           ||
+══════════════════════════════════════════════════════════════════════════════════════════════════
+||      psimon         |      ps        | "Operaciones de oráculo, Hamiltoniano y estados."     ||
+||   psimon.holography |      psh       | "Generación de patrones CGH y visualización fractal." ||
+|| psimon.metriplectic |      psm       | "Dinámica de energía y entropía (E_Metriplética)."    ||
+══════════════════════════════════════════════════════════════════════════════════════════════════
+  ==============================================================================================
+```
+    ✓ MANDATO METRIPLÉTICO: Competencia entre términos conservativos y disipativos ($H = H_{symp} + S_{metr}$).
 
-✓ MANDATO METRIPLÉTICO: Competencia entre términos conservativos y disipativos ($H = H_{symp} + S_{metr}$).
-✓ CONSERVACIÓN H7: Los estados complementarios siempre suman 7 ($s=111$).
-✓ FASE DE BERRY: Cálculo geométrico con corrección $GOLDEN\_PHASE \approx 0.3674$.
-✓ ESTADOS 2-1: Distinción de estados de salida según el momento (1,0) vs (0,1).
-✓ SALIDA TABULAR: Reporte detallado de métricas físicas y cuánticas.
+    ✓ CONSERVACIÓN H7: Los estados complementarios siempre suman 7 ($s=111$).
+
+    ✓ FASE DE BERRY: Cálculo geométrico con corrección $GOLDEN\_PHASE \approx 0.3674$.
+
+    ✓ ESTADOS 2-1: Distinción de estados de salida según el momento (1,0) vs (0,1).
+
+    ✓ SALIDA TABULAR: Reporte detallado de métricas físicas y cuánticas.
+
 
 🔬 VALIDACIÓN SEGÚN TRES NIVELES DE CORRESPONDENCIA:
 
-NIVEL 1 (Isomorfismo Matemático):
+>NIVEL 1 (Isomorfismo Matemático):
+  
   ✓ Ecuación de Simon: f(x ⊕ 7) = f(x)
+  
   ✓ Período s=7: Coincide con el complemento aritmético en 3 bits.
 
-NIVEL 2 (Isomorfismo Dimensional):
+>NIVEL 2 (Isomorfismo Dimensional):
+  
   ✓ Momento p: ℝ → [0, 7]
+  
   ✓ Energía Metriplética: [0, 1] (Normalizada)
 
-NIVEL 3 (Isomorfismo Físico):
+>NIVEL 3 (Isomorfismo Físico):
+  
   ✓ Conservación de H: El par entrelazado $(n, 7-n)$ tiene energías simétricas.
+
   ✓ Fase de Berry: Refleja la topología del ciclo de Hilbert.
 
 📊 SALIDA TÍPICA:
