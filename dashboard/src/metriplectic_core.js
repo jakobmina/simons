@@ -34,22 +34,20 @@ export class QuantumLayer {
     constructor(n_inputs, n_qubits) {
         this.n_inputs = n_inputs;
         this.n_qubits = n_qubits;
-        this.theta = Array.from({ length: n_qubits }, () => 
+        this.theta = Array.from({ length: n_qubits }, () =>
             Array.from({ length: n_inputs }, () => Math.random() * 2 * Math.PI)
         );
-        this.phi = Array.from({ length: n_qubits }, () => 
+        this.phi = Array.from({ length: n_qubits }, () =>
             Array.from({ length: n_inputs }, () => Math.random() * 2 * Math.PI)
         );
     }
 
     forward(x) {
         // Simplified dot product for simulation
-        const rho = this.theta.map((row, i) => {
+        const rho = this.theta.map((row) => {
             let sumY = 0;
-            let sumZ = 0;
             for (let j = 0; j < x.length; j++) {
                 sumY += row[j] * x[j];
-                sumZ += this.phi[i][j] * x[j];
             }
             // Probabilidad de colapso |psi_1|^2
             return Math.pow(Math.sin(sumY / 2.0), 2);
@@ -87,7 +85,7 @@ export class MetriplecticQLSTMCell {
         const o_gate = this.gate_o.forward(combined);
 
         const dissipation = c_prev.map(v => this.S_potential * On * v);
-        
+
         const c_next = c_prev.map((v, i) => {
             let val = f_gate[i] * v + i_gate[i] * c_tilde[i] - dissipation[i];
             return Math.min(Math.max(val, 0.01), 0.99); // Regla 1.3

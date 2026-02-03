@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { Activity, Zap, Shield, Cpu, Play, RefreshCw, Layers } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import {
   MetriplecticQLSTMCell,
   GoldenOperator,
-  PhysicsEngine
+  PhysicsEngine,
+  GOLDEN_PHASE
 } from './metriplectic_core';
 import './App.css';
 
@@ -61,7 +62,7 @@ const App = () => {
 
   return (
     <div className="dashboard-container">
-      <motion.header
+      <Motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="header"
@@ -71,7 +72,7 @@ const App = () => {
           <div className="glass-pill">EL MANDATO METRIPLÉCTICO</div>
         </div>
         <p className="subtitle">Quantum LSTM Evolution & Metriplectic Dynamics (H7 Optimized)</p>
-      </motion.header>
+      </Motion.header>
 
       <div className="controls">
         <button onClick={toggleSimulation}>
@@ -112,7 +113,7 @@ const App = () => {
       </div>
 
       <div className="stats-grid" style={{ gridTemplateColumns: '1fr' }}>
-        <motion.div
+        <Motion.div
           className="glass-card"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -142,7 +143,7 @@ const App = () => {
               </AreaChart>
             </ResponsiveContainer>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
 
       <div className="glass-card footer-info">
@@ -181,7 +182,7 @@ const App = () => {
 };
 
 const StatCard = ({ label, value, icon, color }) => (
-  <motion.div
+  <Motion.div
     className="glass-card stat-card"
     whileHover={{ scale: 1.02 }}
     initial={{ opacity: 0, y: 20 }}
@@ -192,7 +193,7 @@ const StatCard = ({ label, value, icon, color }) => (
       {icon}
     </div>
     <span className="stat-value" style={{ color: color }}>{value}</span>
-  </motion.div>
+  </Motion.div>
 );
 
 export default App;
