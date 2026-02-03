@@ -12,7 +12,11 @@
 
 📦 CONTENIDO DEL PAQUETE:
 
-1. simons_complete.py
+1. main.py
+   - Punto de entrada central (CLI).
+   - Accede a todas las funcionalidades: `run`, `viz`, `test`, `show`.
+
+2. simons_complete.py
    - Implementación del sistema Metriplético H7.
    - 5 módulos principales:
      - Análisis de Simetría Dinámica (H7 + Fase de Berry + GOLDEN_PHASE)
@@ -21,11 +25,14 @@
      - Red Neuronal Cuántica (Entrelazamiento y fase)
      - Experimento integrado con salida tabular (Pandas)
 
-2. simon_h7_interface.cs
-   - Implementación de referencia en C# para AndroidHtmlUi.
-   - Lógica de validación física y tabla de momentos.
+3. simon_h7_holography.py
+   - Generador de visualización holográfica unificada.
+   - Proyecta estados en Bloch y crea patrones CGH.
 
-3. tests/test_simons.py
+4. simon_h7_interface.cs
+   - Implementación de referencia en C# para AndroidHtmlUi.
+
+5. tests/test_simons.py
    - Suite de pruebas Pytest para validación de H7 y Simon.
 
 🚀 INICIO RÁPIDO:
@@ -34,19 +41,23 @@ Configurar entorno:
 
 ```bash
 python3 -m venv env
-./env/bin/pip install numpy pandas pytest
+./env/bin/pip install numpy pandas pytest plotly Pillow
 ```
 
-Ejecutar experimento H7:
+Uso del CLI Central:
 
 ```bash
-./env/bin/python simons_complete.py
-```
+# Ejecutar el experimento completo
+./env/bin/python main.py run
 
-Ejecutar tests:
+# Generar la visualización holográfica
+./env/bin/python main.py viz
 
-```bash
-PYTHONPATH=. ./env/bin/pytest tests/test_simons.py
+# Ejecutar tests de validación
+./env/bin/python main.py test
+
+# Ver referencia C#
+./env/bin/python main.py show
 ```
 
 ✨ CARACTERÍSTICAS PRINCIPALES:

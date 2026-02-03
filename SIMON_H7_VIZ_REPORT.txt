@@ -1,0 +1,7 @@
+REPORTE DE VISUALIZACIÓN H7
+===========================
+Contexto: Algoritmo de Simon Mejorado (H7)
+Dimensión Fractal Bloch: -0.1185
+Constante Áurea PHI: 1.618034
+Fase de Berry (Golden Phase): 0.367423 rad
+Puntos Simulados: 1000
