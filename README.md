@@ -1,14 +1,14 @@
-<div style="h1" align="center">
+# ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO
 
-         ═══════════════════════════════════════════════════════════════════════════════    
-        ║          ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO            ║
-        ║                    Versión 2.1 - Febrero 2025                               ║
-        ╚═════════════════════════════════════════════════════════════════════════════╝
+ ═══════════════════════════════════════════════════════════════════════════════
+║          ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO            ║
+║                    Versión 2.1 - Febrero 2025                               ║
+╚═════════════════════════════════════════════════════════════════════════════╝
+
 ![Quantum Badge](https://img.shields.io/badge/Quantum-Smopsys-black)
 ![Python Version](https://img.shields.io/badge/Python-3.8%2B-olive)
 ![License](https://img.shields.io/badge/License-MIT%202.0-orange)
 ![Algorithm](https://img.shields.io/badge/Quantum-Algorithm-darkgrey)
- </div>
 
 📦 CONTENIDO DEL PAQUETE:
 
@@ -83,6 +83,7 @@ NIVEL 3 (Isomorfismo Físico):
   ✓ Fase de Berry: Refleja la topología del ciclo de Hilbert.
 
 📊 SALIDA TÍPICA:
+
 ```text
 (base) user@user-bash:~/simons$ /home/user/simons/env/bin/python /home/user/simons/simons_complete.py
 
@@ -107,6 +108,7 @@ Período Real: 7 (111) | Estimado: 7 (111)
 Fase de Berry Promedio: 3.1416 rad
 Entropía de Entrelazamiento: -0.0000 bits
 ```
+
 ⚙️ REQUISITOS:
 
 - Python 3.12+ (Recomendado)
