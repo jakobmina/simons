@@ -1,0 +1,18 @@
+
+████████████████████████████████████████████████████████████████████████████████
+  SIMON MEJORADO: MOMENTO, FASE DE BERRY Y CONSERVACIÓN H7
+████████████████████████████████████████████████████████████████████████████████
+
+[ESTADOS DE MOMENTO ENTRELAZADOS]
+n=1 | Momento: 1 | Complemento H7: 6 | Estado 2-1: (1, 0) | E_Metriplética: 0.4783
+n=2 | Momento: 2 | Complemento H7: 5 | Estado 2-1: (1, 0) | E_Metriplética: 0.4609
+n=3 | Momento: 3 | Complemento H7: 4 | Estado 2-1: (1, 0) | E_Metriplética: 0.4513
+n=4 | Momento: 4 | Complemento H7: 3 | Estado 2-1: (0, 1) | E_Metriplética: 0.4513
+n=5 | Momento: 5 | Complemento H7: 2 | Estado 2-1: (0, 1) | E_Metriplética: 0.4609
+n=6 | Momento: 6 | Complemento H7: 1 | Estado 2-1: (0, 1) | E_Metriplética: 0.4783
+
+[RESULTADO SIMON]
+Período Real: 7 (111) | Estimado: 7 (111)
+Éxito: ✓ | Confianza: 100.00%
+Fase de Berry Promedio: 2.7489 rad
+Entropía de Entrelazamiento: -0.0000 bits
