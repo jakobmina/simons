@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/simon-h7
+      url: https://test.pypi.org/p/Psimon
     permissions:
       id-token: write  # Mandatory for trusted publishing
 
