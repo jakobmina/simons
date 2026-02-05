@@ -7,7 +7,7 @@ from simon_h7_metriplectic import MetriplecticH7System
 # Configuración de la página Premium
 st.set_page_config(
     page_title="Simon H7: Metriplectic Holography",
-    page_icon="🔆",
+page_icon="🔆",
     layout="wide",
 )
 
