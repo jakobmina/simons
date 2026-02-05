@@ -1,7 +1,7 @@
 import numpy as np
 import math
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Tuple, Dict
 
 @dataclass
 class MetriplecticH7System:
@@ -22,6 +22,26 @@ class MetriplecticH7System:
         Modulación fundamental del vacío estructurado.
         """
         return np.cos(np.pi * n) * np.cos(np.pi * self.phi_golden * n)
+
+    def euclidean_distance(self, x: np.ndarray, y: np.ndarray) -> float:
+        """
+        Cálculo analítico de distancia euclidiana (Regla 2.2).
+        Equivalente a la implementación en C proporcionada.
+        """
+        return float(np.sqrt(np.sum((x - y)**2)))
+
+    def mahalanobis_distance(self, x: np.ndarray, mu: np.ndarray, cov: np.ndarray) -> float:
+        """
+        Distancia de Mahalanobis para profundidad estadística.
+        d_M = sqrt((x-mu)^T * Sigma^-1 * (x-mu))
+        """
+        delta_vec = x - mu
+        try:
+            inv_cov = np.linalg.inv(cov + np.eye(len(cov)) * 1e-9)
+            dist_sq = delta_vec.T @ inv_cov @ delta_vec
+            return float(np.sqrt(np.abs(dist_sq)))
+        except np.linalg.LinAlgError:
+            return 0.0
 
     def compute_lagrangian(self, psi: np.ndarray, H: float, S: float) -> Tuple[float, float]:
         """
@@ -73,6 +93,20 @@ class MetriplecticH7System:
         y_bloch /= norm_b
         z_bloch /= norm_b
 
+        # 5. Métricas Analíticas Avanzadas
+        ideal_rho = O_n**2
+        ideal_rho /= (np.sum(ideal_rho) + 1e-15)
+        
+        dist_euc = self.euclidean_distance(rho, ideal_rho)
+        
+        # Mahalanobis aplicada a las coordenadas de Bloch (Trayectoria vs Atractor)
+        # mu: Centro de la esfera (o punto de equilibrio)
+        bloch_points = np.vstack([x_bloch, y_bloch, z_bloch]).T
+        mu_bloch = np.mean(bloch_points, axis=0)
+        cov_bloch = np.cov(bloch_points.T)
+        
+        dist_mah = self.mahalanobis_distance(bloch_points[-1], mu_bloch, cov_bloch)
+
         return {
             "n": n,
             "psi": psi,
@@ -85,5 +119,7 @@ class MetriplecticH7System:
             "L_metr": L_m,
             "x_bloch": x_bloch,
             "y_bloch": y_bloch,
-            "z_bloch": z_bloch
+            "z_bloch": z_bloch,
+            "dist_coherence": dist_euc,
+            "dist_mahalanobis": dist_mah
         }

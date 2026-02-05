@@ -3,6 +3,8 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from simon_h7.core.metriplectic import MetriplecticH7System
+from simon_h7.analysis.topology import VietorisRipsAnalysis
+from simon_h7.core.algorithm import AnalizadorSimetriaDinamica
 
 # Configuración de la página Premium
 st.set_page_config(
@@ -45,6 +47,10 @@ with st.sidebar:
     steps = st.slider("Pasos de Simulación (n)", 100, 5000, 1000)
     delta = st.slider("Parámetro Delta (Estabilidad)", 0.0, 1.0, 0.1)
     phi_custom = st.number_input("Razón Áurea (φ)", value=1.61803398875, format="%.10f")
+    
+    st.markdown("---")
+    st.header("🕸 Topología (Vietoris-Rips)")
+    epsilon = st.slider("Radio Epsilon (ε)", 0.05, 1.0, 0.3)
     
     st.markdown("---")
     st.info("Regla 1.3: No se permiten sistemas puramente conservativos ni puramente disipativos.")
@@ -111,6 +117,9 @@ with col2:
     with m_col2:
         st.metric("Lagrangiano Métrico ($L_{metr}$)", f"{data['L_metr']:.4f}")
     
+    st.metric("📏 Coherence (Euclidean)", f"{data['dist_coherence']:.6f}", delta=f"{delta:.2f} Δ", delta_color="inverse")
+    st.metric("🧬 Statistical Depth (Mahalanobis)", f"{data['dist_mahalanobis']:.4f}", help="Métricas de dispersión y correlación de la trayectoria")
+    
     st.markdown("""
     <div class="metric-card">
         <b>Ecuación de Evolución:</b><br>
@@ -165,6 +174,71 @@ fig_tri.add_trace(go.Scatter(
 ))
 fig_tri.update_layout(template="plotly_dark", height=300, margin=dict(l=20, r=20, t=10, b=20))
 st.plotly_chart(fig_tri, use_container_width=True)
+
+# ---------------------------------------------------------
+# NUEVA SECCIÓN: TOPOLOGÍA DE VIETORIS-RIPS
+# ---------------------------------------------------------
+st.markdown("---")
+st.header("🕸 TOPOLOGÍA DEL ESPACIO DE ESTADOS (VIETORIS-RIPS)")
+
+# Extraer puntos de la esfera de Bloch (muestreo para no saturar el grafo)
+indices = np.linspace(0, steps-1, min(steps, 100), dtype=int)
+bloch_points = np.vstack([data['x_bloch'][indices], data['y_bloch'][indices], data['z_bloch'][indices]]).T
+
+# Analizar topología
+vr = VietorisRipsAnalysis(epsilon=epsilon)
+adj = vr.compute_proximity_graph(bloch_points)
+edges = vr.get_edges(adj)
+
+# Obtener quiralidad para colorear nodos
+analizador = AnalizadorSimetriaDinamica()
+quiralidades = [analizador.calcular_quiralidad(analizador.calcular_paridad(i), analizador.calcular_quasiperiodo(i, phi_custom)) for i in indices]
+
+# Graficar Grafo de Proximidad 3D
+fig_vr = go.Figure()
+
+# Dibujar aristas
+for i, j in edges:
+    fig_vr.add_trace(go.Scatter3d(
+        x=[bloch_points[i, 0], bloch_points[j, 0]],
+        y=[bloch_points[i, 1], bloch_points[j, 1]],
+        z=[bloch_points[i, 2], bloch_points[j, 2]],
+        mode='lines',
+        line=dict(color='rgba(255,255,255,0.2)', width=1),
+        hoverinfo='skip',
+        showlegend=False
+    ))
+
+# Dibujar nodos
+fig_vr.add_trace(go.Scatter3d(
+    x=bloch_points[:, 0],
+    y=bloch_points[:, 1],
+    z=bloch_points[:, 2],
+    mode='markers',
+    marker=dict(
+        size=6,
+        color=quiralidades,
+        colorscale='Hot',
+        opacity=0.8,
+        colorbar=dict(title="Quiralidad", thickness=15, len=0.5)
+    ),
+    text=[f"Paso {i}" for i in indices],
+    name="Vértices (Estados)"
+))
+
+fig_vr.update_layout(
+    template="plotly_dark",
+    height=600,
+    scene=dict(
+        xaxis=dict(title='X Bloch'),
+        yaxis=dict(title='Y Bloch'),
+        zaxis=dict(title='Z Bloch'),
+        aspectmode='cube'
+    ),
+    margin=dict(l=0, r=0, t=30, b=0)
+)
+st.plotly_chart(fig_vr, use_container_width=True)
+st.caption(f"Grafo de proximidad con ε={epsilon}. Los nodos se conectan si su distancia en la esfera de Bloch es menor que el radio. Coloreados por Quiralidad (Regla 1.1).")
 
 # Footer
 st.markdown("---")

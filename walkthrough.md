@@ -41,6 +41,20 @@ python3 main.py tripartite
    -> Lagrangiano: L_symp=100.5062, L_metr=-50.2531
 ```
 
+## Herramientas Analíticas
+
+Se han integrado métricas avanzadas para el diagnóstico del sistema:
+
+- **Distancia Euclidiana:** Mide la desviación de la densidad de probabilidad $\rho$ respecto al estado ideal del Operador Áureo.
+- **Distancia de Mahalanobis:** Proporciona un análisis de la dispersión estadística de la trayectoria en la esfera de Bloch, utilizando una matriz de covarianza para identificar anomalías o pérdidas de cohesión.
+
+## Análisis Topológico (Vietoris-Rips)
+
+Se ha incorporado un motor de análisis topológico en `simon_h7.analysis.topology`:
+
+- **Grafo de Proximidad:** Construcción del 1-esqueleto del complejo de Vietoris-Rips basado en un radio $\epsilon$ ajustable.
+- **Clasificación por Quiralidad:** Los nodos del grafo se colorean dinámicamente según su quiralidad topológica, permitiendo identificar clústeres de estados estables vs. disipativos.
+
 ## Conclusión
 
 La nueva estructura modular facilita la escalabilidad y asegura que el código sea un reflejo directo de la teoría física metriplética. El sistema es ahora más robusto, testable y organizado.

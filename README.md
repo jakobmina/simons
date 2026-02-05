@@ -4,7 +4,7 @@
 
 
 >═══════════════════════════════════════════════════════════════════════════════
->ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO
+>ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO `psimon`
 >Versión 2.4 - Febrero 2025
 >═══════════════════════════════════════════════════════════════════════════════
 
@@ -22,6 +22,8 @@ simon_h7/
 │   └── algorithm.py    # Algoritmo de Simon Mejorado
 ├── simulation/         # Procesos de ejecución y hilos
 │   └── tripartite.py   # Proceso Tripartito (2da Cuantización)
+├── analysis/           # Herramientas de análisis avanzado
+│   └── topology.py     # Complejo de Vietoris-Rips (1-esqueleto)
 ├── visualization/      # Motores de renderizado y holografía
 │   └── holography.py   # Visualización Holográfica H7
 └── ui/                 # Interfaces de usuario
