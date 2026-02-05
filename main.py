@@ -7,12 +7,15 @@ import pytest
 # Importar funcionalidades directamente para evitar subprocess
 try:
     from simons_complete import main as run_simon
-    from simon_h7_holography import run_holography
 except ImportError:
-    # Fallback para cuando se ejecuta localmente sin estar instalado
     sys.path.append(os.path.dirname(os.path.abspath(__file__)))
     from simons_complete import main as run_simon
+
+try:
     from simon_h7_holography import run_holography
+except ImportError:
+    def run_holography():
+        print("❌ Error: Módulo simon_h7_holography no encontrado.")
 
 def run_algorithm():
     """Ejecuta el algoritmo de Simon H7 completo."""
@@ -53,16 +56,30 @@ def show_cs():
     except FileNotFoundError:
         print("❌ Archivo simon_h7_interface.cs no encontrado.")
 
+def run_tripartite():
+    """Ejecuta la simulación del Proceso Tripartito."""
+    print("\n🧬 Iniciando Proceso Tripartito (2da Cuantización)...")
+    try:
+        from simon_tripartite import TripartiteMetriplecticSystem
+        sys_tri = TripartiteMetriplecticSystem(input_val=7)
+        res = sys_tri.run_tripartite_task()
+        print(f"   -> Estado Estable: {'✅ SÍ' if res.is_stable else '❌ NO (DECOHERENCIA)'}")
+        print(f"   -> Fase de Berry Acumulada: {res.berry_phase:.6f}")
+        print(f"   -> Lagrangiano: L_symp={res.l_symp:.4f}, L_metr={res.l_metr:.4f}")
+    except Exception as e:
+        print(f"❌ Error en el Proceso Tripartito: {e}")
+
 def main():
     parser = argparse.ArgumentParser(
         description="CLI Central para el Proyecto Simon H7 - Mandato Metriplético",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Ejemplos:
-  %(prog)s run    # Ejecuta el experimento completo
-  %(prog)s viz    # Genera la holografía interactiva
-  %(prog)s test   # Ejecuta validaciones automatizadas
-  %(prog)s show   # Muestra código C# de referencia
+  %(prog)s run          # Ejecuta el experimento completo
+  %(prog)s viz          # Genera la holografía interactiva
+  %(prog)s tripartite   # Ejecuta el proceso tripartito (hilos)
+  %(prog)s test         # Ejecuta validaciones automatizadas
+  %(prog)s show         # Muestra código C# de referencia
 """
     )
     
@@ -70,6 +87,7 @@ Ejemplos:
     
     subparsers.add_parser("run", help="Ejecutar Algoritmo Simon H7")
     subparsers.add_parser("viz", help="Generar Visualización Holográfica")
+    subparsers.add_parser("tripartite", help="Ejecutar Proceso Tripartito")
     subparsers.add_parser("test", help="Ejecutar Suite de Pruebas")
     subparsers.add_parser("show", help="Mostrar referencia C#")
     
@@ -79,6 +97,8 @@ Ejemplos:
         run_algorithm()
     elif args.command == "viz":
         run_viz()
+    elif args.command == "tripartite":
+        run_tripartite()
     elif args.command == "test":
         run_tests()
     elif args.command == "show":

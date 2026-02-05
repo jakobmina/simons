@@ -120,6 +120,52 @@ with col2:
     </div>
     """, unsafe_allow_html=True)
 
+# ---------------------------------------------------------
+# NUEVA SECCIÓN: PROCESO TRIPARTITO (2da CUANTIZACIÓN)
+# ---------------------------------------------------------
+st.markdown("---")
+st.header("🧬 PROCESO TRIPARTITO: 2da CUANTIZACIÓN")
+
+from simon_tripartite import TripartiteMetriplecticSystem
+
+# Ejecutar simulación tripartita
+tri_sys = TripartiteMetriplecticSystem(input_val=int(steps % 255)) # Usamos steps como semilla
+tri_data = tri_sys.run_tripartite_task()
+
+t_col1, t_col2, t_col3 = st.columns(3)
+
+with t_col1:
+    st.markdown("#### Hilo A: Partícula")
+    st.write(f"**Output A:** `{tri_data.output_a}`")
+    st.progress(1.0 if tri_data.output_a > 0 else 0.0)
+    st.caption("Evolución Simpléctica Unitaria")
+
+with t_col2:
+    st.markdown("#### Hilo B: Espejo")
+    st.write(f"**Output B:** `{tri_data.output_b}`")
+    st.progress(1.0 if tri_data.output_b > 0 else 0.0)
+    st.caption("Simetría Topológica XOR-Simon")
+
+with t_col3:
+    st.markdown("#### Hilo C: Coherencia")
+    status = "✅ ESTABLE" if tri_data.is_stable else "❌ DECOHERENCIA"
+    st.write(f"**Estado:** {status}")
+    st.write(f"**Fase de Berry:** `{tri_data.berry_phase:.6f}`")
+    st.caption("Segunda Cuantización / Operador Métrico")
+
+# Graficar Historia de la Coherencia (Simulada para visualización)
+st.subheader("🔄 Convergencia del Atractor Métrico")
+n_tri = np.arange(len(tri_data.rho)) if len(tri_data.rho) > 0 else np.arange(100)
+fig_tri = go.Figure()
+fig_tri.add_trace(go.Scatter(
+    x=n_tri, 
+    y=tri_data.v if len(tri_data.v) > 0 else np.zeros(100), 
+    name="Flujo de Información (v)",
+    line=dict(color='#00ff41', width=1)
+))
+fig_tri.update_layout(template="plotly_dark", height=300, margin=dict(l=20, r=20, t=10, b=20))
+st.plotly_chart(fig_tri, use_container_width=True)
+
 # Footer
 st.markdown("---")
 st.markdown("Developed with Metriplectic Rigor by Antigravity AI")
