@@ -1,4 +1,7 @@
-# ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO
+<img align="center" width="48" height="48" alt="icons8-inteligencia-artificial-48" src="https://github.com/user-attachments/assets/8401d063-9017-4702-8a56-007a7c251034" /> Psimon
+# ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO  
+
+
 
 >═══════════════════════════════════════════════════════════════════════════════
 >ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO
