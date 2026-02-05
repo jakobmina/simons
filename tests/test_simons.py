@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 import math
-from simons_complete import AnalizadorSimetriaDinamica, MetriplecticMomentumOracle, AlgoritmoSimonCuantico
+from simon_h7.core.algorithm import AnalizadorSimetriaDinamica, MetriplecticMomentumOracle, AlgoritmoSimonCuantico
 
 def test_analizador_simetria_h7():
     analizador = AnalizadorSimetriaDinamica()

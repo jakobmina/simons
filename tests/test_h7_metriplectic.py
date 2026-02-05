@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from simon_h7_metriplectic import MetriplecticH7System
+from simon_h7.core.metriplectic import MetriplecticH7System
 
 @pytest.fixture
 def h7_system():

@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from simon_tripartite import TripartiteMetriplecticSystem
+from simon_h7.simulation.tripartite import TripartiteMetriplecticSystem
 
 def test_tripartite_stability():
     """Verifica que el sistema alcanza un estado estable con input estándar."""

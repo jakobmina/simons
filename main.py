@@ -6,7 +6,7 @@ import pytest
 
 # Importar funcionalidades directamente para evitar subprocess
 try:
-    from simons_complete import main as run_simon
+    from simon_h7.core.algorithm import main as run_simon
 except ImportError:
     sys.path.append(os.path.dirname(os.path.abspath(__file__)))
     from simons_complete import main as run_simon
@@ -60,7 +60,7 @@ def run_tripartite():
     """Ejecuta la simulación del Proceso Tripartito."""
     print("\n🧬 Iniciando Proceso Tripartito (2da Cuantización)...")
     try:
-        from simon_tripartite import TripartiteMetriplecticSystem
+        from simon_h7.simulation.tripartite import TripartiteMetriplecticSystem
         sys_tri = TripartiteMetriplecticSystem(input_val=7)
         res = sys_tri.run_tripartite_task()
         print(f"   -> Estado Estable: {'✅ SÍ' if res.is_stable else '❌ NO (DECOHERENCIA)'}")

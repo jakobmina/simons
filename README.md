@@ -1,39 +1,33 @@
 # ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO
 
 >═══════════════════════════════════════════════════════════════════════════════
->ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO                        
->Versión 2.3 - Febrero 2025                                                       
->═══════════════════════════════════════════════════════════════════════════════ 
+>ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO
+>Versión 2.4 - Febrero 2025
+>═══════════════════════════════════════════════════════════════════════════════
 
 ![Quantum Badge](https://img.shields.io/badge/Quantum-Smopsys-black)
 ![Python Version](https://img.shields.io/badge/Python-3.8%2B-olive)
 ![License](https://img.shields.io/badge/License-MIT-orange)
 ![Algorithm](https://img.shields.io/badge/Quantum-Algorithm-darkgrey)
 
-📦 CONTENIDO DEL PAQUETE:
+📦 ESTRUCTURA MODULAR (Simon H7):
+
+```text
+simon_h7/
+├── core/               # Lógica fundamental y algoritmos
+│   ├── metriplectic.py # Dinámica Hamiltoniana y Métrica
+│   └── algorithm.py    # Algoritmo de Simon Mejorado
+├── simulation/         # Procesos de ejecución y hilos
+│   └── tripartite.py   # Proceso Tripartito (2da Cuantización)
+├── visualization/      # Motores de renderizado y holografía
+│   └── holography.py   # Visualización Holográfica H7
+└── ui/                 # Interfaces de usuario
+    └── dashboard.py    # Dashboard Premium (Streamlit)
+```
 
 1. main.py
    - Punto de entrada central (CLI).
-   - Accede a todas las funcionalidades: `run`, `viz`, `test`, `show`.
-
-2. simons_complete.py
-   - Implementación del sistema Metriplético H7.
-   - 5 módulos principales:
-     - Análisis de Simetría Dinámica (H7 + Fase de Berry + GOLDEN_PHASE)
-     - Oráculo de Momento Metriplético (Conservación Hamiltoniana)
-     - Algoritmo de Simon (Recuperación de período s=7)
-     - Red Neuronal Cuántica (Entrelazamiento y fase)
-     - Experimento integrado con salida tabular (Pandas)
-
-3. simon_h7_holography.py
-   - Generador de visualización holográfica unificada.
-   - Proyecta estados en Bloch y crea patrones CGH.
-
-4. simon_h7_interface.cs
-   - Implementación de referencia en C# para AndroidHtmlUi.
-
-5. tests/test_simons.py
-   - Suite de pruebas Pytest para validación de H7 y Simon.
+   - Accede a todas las funcionalidades mediante el paquete `simon_h7`.
 
 🚀 INICIO RÁPIDO:
 
@@ -50,14 +44,14 @@ Uso del CLI Central:
 # Ejecutar el experimento completo
 ./env/bin/python main.py run
 
-# Generar la visualización holográfica
-./env/bin/python main.py viz
+# Ejecutar el Proceso Tripartito (Hilos)
+./env/bin/python main.py tripartite
+
+# Lanzar el Dashboard Interactivo (GUI)
+./env/bin/streamlit run simon_h7/ui/dashboard.py
 
 # Ejecutar tests de validación
 ./env/bin/python main.py test
-
-# Ver referencia C#
-./env/bin/python main.py show
 ```
 
 ## 🔬 COMPARATIVA: QISKIT VS PSIMON
@@ -72,31 +66,36 @@ La siguiente tabla contrasta el enfoque estándar de computación cuántica (Qis
 | **Resultado**       | Probabilistic Histogram                  | `DeterministicSecret` (100% Confianza)             |
 | **Métrica**         | Fidelity / Error Rate                    | `LaminarFlowEntropy` (Meta: 0.0000)                |
 
-### Explicación de Diferencias Clave:
+### Explicación de Diferencias Clave
 
 **1. Core Object:**
+
 - **Qiskit** trabaja con circuitos cuánticos discretos compuestos por puertas lógicas
 - **Psimon** modela el flujo continuo bajo dinámica Hamiltoniana metriplética
 
 **2. Base de Operación:**
+
 - **Qiskit** usa transformaciones unitarias discretas (H, CNOT, Rz, etc.)
 - **Psimon** evoluciona según $H = H_{symp} + S_{metr}$ donde:
   - $H_{symp}$: Término conservativo (simpléctico)
   - $S_{metr}$: Término disipativo (metriplético)
 
 **3. Optimización:**
+
 - **Qiskit** optimiza circuitos mediante transpilación y algoritmos variacionales (VQE)
 - **Psimon** ajusta la Fase de Berry mediante GOLDEN_PHASE para anclaje a $\pi$
 
 **4. Resultado:**
+
 - **Qiskit** produce histogramas probabilísticos tras muchas mediciones
 - **Psimon** recupera el secreto de forma determinística con 100% de confianza
 
 **5. Métrica:**
+
 - **Qiskit** mide fidelidad cuántica y tasas de error de puertas
 - **Psimon** monitorea entropía de flujo laminar (meta: S = 0.0000 bits)
 
-### Ejemplo de Código Comparativo:
+### Ejemplo de Código Comparativo
 
 ```python
 # QISKIT: Enfoque tradicional
@@ -116,6 +115,7 @@ entropy = flow.measure_laminar_entropy()      # S ≈ 0.0000
 ```
 
 ✨ RECOMENDACIONES Y CARACTERÍSTICAS PRINCIPALES:
+
 ```bash
 __________________________________________________________________________________________________
 ||      Librería       | Alias Sugerido |                    Contexto                           ||
@@ -126,16 +126,26 @@ ________________________________________________________________________________
 ══════════════════════════════════════════════════════════════════════════════════════════════════
   ==============================================================================================
 ```
+
     ✓ MANDATO METRIPLÉTICO: Competencia entre términos conservativos y disipativos ($H = H_{symp} + S_{metr}$).
 
     ✓ CONSERVACIÓN H7: Los estados complementarios siempre suman 7 ($s=111$).
 
     ✓ FASE DE BERRY: Cálculo geométrico con corrección $GOLDEN\_PHASE \approx 0.3674$.
 
-    ✓ ESTADOS 2-1: Distinción de estados de salida según el momento (1,0) vs (0,1).
+    ✓ PROCESO TRIPARTITO: 2da Cuantización mediante hilos de Partícula, Espejo y Coherencia.
 
     ✓ SALIDA TABULAR: Reporte detallado de métricas físicas y cuánticas.
 
+## 🧬 PROCESO TRIPARTITO (2da CUANTIZACIÓN)
+
+El núcleo de la v2.4 es la arquitectura de hilos de CPU que actúan como unidades topológicas independientes:
+
+1. **Hilo A (Partícula):** Ejecuta la dinámica unitaria (Simpléctica).
+2. **Hilo B (Espejo):** Mantiene la simetría de Simon (XOR) asegurando la dualidad del campo.
+3. **Hilo C (Coherencia):** Actúa como el Operador Métrico, monitoreando la simetría y actualizando la Fase de Berry histórica.
+
+Este proceso garantiza que el sistema relaje hacia un atractor estable, evitando la decoherencia computacional mediante la validación continua de la topología del secreto `s=7`.
 
 🔬 VALIDACIÓN SEGÚN TRES NIVELES DE CORRESPONDENCIA:
 
@@ -199,8 +209,8 @@ Entropía de Entrelazamiento: -0.0000 bits
 
 ═══════════════════════════════════════════════════════════════════════════════
 
-Versión: 2.3
-Fecha: Febrero 2, 2025
+Versión: 2.4
+Fecha: Febrero 5, 2025
 Autor: jakobmina Jacobo Tlacaelel Mina Rodriguez Smpsys QuoreMind
 Licencia: MIT
 
