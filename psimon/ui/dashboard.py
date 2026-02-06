@@ -2,9 +2,9 @@ import streamlit as st
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from simon_h7.core.metriplectic import MetriplecticH7System
-from simon_h7.analysis.topology import VietorisRipsAnalysis
-from simon_h7.core.algorithm import AnalizadorSimetriaDinamica
+from psimon.core.metriplectic import MetriplecticH7System
+from psimon.analysis.topology import VietorisRipsAnalysis
+from psimon.core.algorithm import AnalizadorSimetriaDinamica
 
 # Configuración de la página Premium
 st.set_page_config(
@@ -135,7 +135,7 @@ with col2:
 st.markdown("---")
 st.header("🧬 PROCESO TRIPARTITO: 2da CUANTIZACIÓN")
 
-from simon_h7.simulation.tripartite import TripartiteMetriplecticSystem
+from psimon.simulation.tripartite import TripartiteMetriplecticSystem
 
 # Ejecutar simulación tripartita
 tri_sys = TripartiteMetriplecticSystem(input_val=int(steps % 255)) # Usamos steps como semilla

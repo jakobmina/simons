@@ -3,8 +3,8 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "simons"
-version = "2.3.0"
+name = "psimon-h7"
+version = "2.5.0"
 authors = [
   { name="Jacobo Tlacaelel Mina Rodriguez", email="jakocrazykings@gmail.com" },
 ]
@@ -29,11 +29,12 @@ dependencies = [
 "Homepage" = "https://github.com/jakobmina/simons"
 
 [project.scripts]
-simons = "main:main"
+psimon-h7 = "main:main"
 
 [tool.setuptools]
-py-modules = ["main", "simons_complete", "simon_h7_holography"]
+packages = ["psimon"]
+py-modules = ["main"]
 include-package-data = true
 
 [tool.setuptools.package-data]
-"*" = ["simon_h7_interface.cs", "walkthrough.md", "CHANGELOG.md", "LICENSE"]
+"*" = ["psimon_interface.cs", "walkthrough.md", "CHANGELOG.md", "LICENSE"]

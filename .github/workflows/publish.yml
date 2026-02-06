@@ -26,15 +26,35 @@ jobs:
         name: python-package-distributions
         path: dist/
 
+  publish-to-pypi:
+    name: Publish to PyPI
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/psimon-h7
+    permissions:
+      id-token: write
+
+    steps:
+    - name: Download all the dists
+      uses: actions/download-artifact@v4
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+
   publish-to-testpypi:
     name: Publish to TestPyPI
     needs: [build]
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/Psimon
+      url: https://test.pypi.org/p/psimon-h7
     permissions:
-      id-token: write  # Mandatory for trusted publishing
+      id-token: write
 
     steps:
     - name: Download all the dists
@@ -46,5 +66,3 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         repository-url: https://test.pypi.org/legacy/
-        # Note: If not using Trusted Publishing, uncomment the password line below
-        # password: ${{ secrets.TEST_PYPI_API_TOKEN }}
