@@ -1,4 +1,4 @@
-# Walkthrough: Simon H7 Modular (v2.4.1)
+# Walkthrough: Simon H7 Modular (v2.5.0)
 
 He completado la reorganización modular del repositorio y la implementación del Proceso Tripartito (2da Cuantización) siguiendo el Mandato Metriplético.
 
@@ -6,9 +6,9 @@ He completado la reorganización modular del repositorio y la implementación de
 
 El proyecto ahora se organiza como un paquete Python estructurado:
 
-- **`simon_h7.core`**: Contiene la lógica fundamental (`metriplectic.py`) y el algoritmo de Simon mejorado (`algorithm.py`).
-- **`simon_h7.simulation`**: Gestiona el **Proceso Tripartito** (`tripartite.py`), simulando la interacción entre hilos de Partícula, Espejo y Coherencia.
-- **`simon_h7.ui`**: Aloja el dashboard interactivo (`dashboard.py`).
+- **`psimon.core`**: Contiene la lógica fundamental (`metriplectic.py`) y el algoritmo de Simon mejorado (`algorithm.py`).
+- **`psimon.simulation`**: Gestiona el **Proceso Tripartito** (`tripartite.py`), simulando la interacción entre hilos de Partícula, Espejo y Coherencia.
+- **`psimon.ui`**: Aloja el dashboard interactivo (`dashboard.py`).
 
 ## Proceso Tripartito (2da Cuantización)
 
@@ -50,7 +50,7 @@ Se han integrado métricas avanzadas para el diagnóstico del sistema:
 
 ## Análisis Topológico (Vietoris-Rips)
 
-Se ha incorporado un motor de análisis topológico en `simon_h7.analysis.topology`:
+Se ha incorporado un motor de análisis topológico en `psimon.analysis.topology`:
 
 - **Grafo de Proximidad:** Construcción del 1-esqueleto del complejo de Vietoris-Rips basado en un radio $\epsilon$ ajustable.
 - **Clasificación por Quiralidad:** Los nodos del grafo se colorean dinámicamente según su quiralidad topológica, permitiendo identificar clústeres de estados estables vs. disipativos.

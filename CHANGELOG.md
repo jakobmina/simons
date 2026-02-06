@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.5.0] - 2025-02-06
+
+### Changed
+- Standardized package name to `psimon-h7` across all platforms.
+- Renamed internal package from `simon_h7` to `psimon`.
+- Updated version to 2.5.0.
+- Updated GitHub Actions to support dual publishing (PyPI and TestPyPI) using Trusted Publishing.
+
 ## [2.3.0] - 2025-02-02
 
 ### Added

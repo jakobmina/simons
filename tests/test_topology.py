@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from simon_h7.analysis.topology import VietorisRipsAnalysis
+from psimon.analysis.topology import VietorisRipsAnalysis
 
 def test_proximity_graph_trivial():
     vr = VietorisRipsAnalysis(epsilon=1.5)

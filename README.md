@@ -1,11 +1,11 @@
-<img align="center" width="48" height="48" alt="icons8-inteligencia-artificial-48" src="https://github.com/user-attachments/assets/8401d063-9017-4702-8a56-007a7c251034" /> Psimon
+<img align="center" width="48" height="48" alt="icons8-inteligencia-artificial-48" src="https://github.com/user-attachments/assets/8401d063-9017-4702-8a56-007a7c251034" /> psimon-h7
 # ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO  
 
 
 
 >═══════════════════════════════════════════════════════════════════════════════
->ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO `psimon`
->Versión 2.5 - Febrero 2025
+>ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO `psimon-h7`
+>Versión 2.5.0 - Febrero 2025
 >═══════════════════════════════════════════════════════════════════════════════
 
 ![Quantum Badge](https://img.shields.io/badge/Quantum-Smopsys-black)
@@ -16,7 +16,7 @@
 📦 ESTRUCTURA MODULAR (Simon H7):
 
 ```text
-simon_h7/
+psimon/
 ├── core/               # Lógica fundamental y algoritmos
 │   ├── metriplectic.py # Dinámica Hamiltoniana y Métrica
 │   └── algorithm.py    # Algoritmo de Simon Mejorado
@@ -32,38 +32,49 @@ simon_h7/
 
 1. main.py
    - Punto de entrada central (CLI).
-   - Accede a todas las funcionalidades mediante el paquete `simon_h7`.
+   - Accede a todas las funcionalidades mediante el paquete `psimon`.
 
 🚀 INICIO RÁPIDO:
 
-Configurar entorno:
+Instalación:
+
+```bash
+pip install psimon-h7
+```
+
+Configurar entorno de desarrollo:
 
 ```bash
 python3 -m venv env
-./env/bin/pip install numpy pandas pytest plotly Pillow
+./env/bin/pip install -e .
 ```
 
-Uso del CLI Central:
+Uso del CLI Central (vía comando instalado):
 
 ```bash
-# Ejecutar el experimento completo
-./env/bin/python main.py run
+psimon-h7 run
+```
+
+O directamente con el script:
+
+```bash
+python main.py run
 
 # Ejecutar el Proceso Tripartito (Hilos)
 ./env/bin/python main.py tripartite
 
 # Lanzar el Dashboard Interactivo (GUI)
-./env/bin/streamlit run simon_h7/ui/dashboard.py
+streamlit run psimon/ui/dashboard.py
 
 # Ejecutar tests de validación
 ./env/bin/python main.py test
 ```
 
-## 🔬 COMPARATIVA: QISKIT VS PSIMON
+## 🔬 COMPARATIVA: QISKIT VS PSIMON-H7
 
-La siguiente tabla contrasta el enfoque estándar de computación cuántica (Qiskit) con nuestro paradigma metriplético (Psimon):
+La siguiente tabla contrasta el enfoque estándar de computación cuántica (Qiskit) con nuestro paradigma metriplético (Psimon-H7):
 
-| **Concepto**        | **Qiskit (qc)**                          | **psimon (ps)**                                    |
+| **Concepto**        | **Qiskit (qc)**                          | **psimon-h7 (ps)**                                 |
 |---------------------|------------------------------------------|----------------------------------------------------|
 | **Core Object**     | `QuantumCircuit`                         | `MetriplecticFlow`                                 |
 | **Base de Operación** | Gates (H, CNOT, etc.)                  | `HamiltonianDynamics` ($H_{symp} + S_{metr}$)      |
@@ -111,7 +122,7 @@ qc.measure([0, 1, 2], [0, 1, 2])
 job = backend.run(transpile(qc, backend), shots=1024)
 histogram = job.result().get_counts()  # Probabilístico
 
-# PSIMON: Enfoque metriplético
+# PSIMON-H7: Enfoque metriplético
 import psimon as ps
 flow = ps.MetriplecticFlow(n_qubits=3, s=7)
 flow.apply_hamiltonian_dynamics()
@@ -175,7 +186,7 @@ Este proceso garantiza que el sistema relaje hacia un atractor estable, evitando
 📊 SALIDA TÍPICA:
 
 ```text
-(base) user@user-bash:~/simons$ /home/user/simons/env/bin/python /home/user/simons/simons_complete.py
+(base) user@user-bash:~/simons$ psimon-h7 run
 
 ████████████████████████████████████████████████████████████████████████████████
   SIMON MEJORADO: MOMENTO, FASE DE BERRY Y CONSERVACIÓN H7
@@ -214,7 +225,7 @@ Entropía de Entrelazamiento: -0.0000 bits
 
 ═══════════════════════════════════════════════════════════════════════════════
 
-Versión: 2.5
+Versión: 2.5.0
 Fecha: Febrero 5, 2025
 Autor: jakobmina Jacobo Tlacaelel Mina Rodriguez Smpsys QuoreMind
 Licencia: MIT

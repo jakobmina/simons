@@ -6,16 +6,16 @@ import pytest
 
 # Importar funcionalidades directamente para evitar subprocess
 try:
-    from simon_h7.core.algorithm import main as run_simon
+    from psimon.core.algorithm import main as run_simon
 except ImportError:
     sys.path.append(os.path.dirname(os.path.abspath(__file__)))
     from simons_complete import main as run_simon
 
 try:
-    from simon_h7_holography import run_holography
+    from psimon_holography import run_holography
 except ImportError:
     def run_holography():
-        print("❌ Error: Módulo simon_h7_holography no encontrado.")
+        print("❌ Error: Módulo psimon_holography no encontrado.")
 
 def run_algorithm():
     """Ejecuta el algoritmo de Simon H7 completo."""
@@ -50,17 +50,17 @@ def show_cs():
     try:
         # Intentar encontrar el archivo en el mismo directorio que este script
         base_path = os.path.dirname(os.path.abspath(__file__))
-        cs_path = os.path.join(base_path, "simon_h7_interface.cs")
+        cs_path = os.path.join(base_path, "psimon_interface.cs")
         with open(cs_path, "r") as f:
             print(f.read())
     except FileNotFoundError:
-        print("❌ Archivo simon_h7_interface.cs no encontrado.")
+        print("❌ Archivo psimon_interface.cs no encontrado.")
 
 def run_tripartite():
     """Ejecuta la simulación del Proceso Tripartito."""
     print("\n🧬 Iniciando Proceso Tripartito (2da Cuantización)...")
     try:
-        from simon_h7.simulation.tripartite import TripartiteMetriplecticSystem
+        from psimon.simulation.tripartite import TripartiteMetriplecticSystem
         sys_tri = TripartiteMetriplecticSystem(input_val=7)
         res = sys_tri.run_tripartite_task()
         print(f"   -> Estado Estable: {'✅ SÍ' if res.is_stable else '❌ NO (DECOHERENCIA)'}")
