@@ -144,7 +144,7 @@ ________________________________________________________________________________
 
 ## 🧬 PROCESO TRIPARTITO (2da CUANTIZACIÓN)
 
-El núcleo de la v2.4 es la arquitectura de hilos de CPU que actúan como unidades topológicas independientes:
+El núcleo de la v2.5 es la arquitectura de hilos de CPU que actúan como unidades topológicas independientes:
 
 1. **Hilo A (Partícula):** Ejecuta la dinámica unitaria (Simpléctica).
 2. **Hilo B (Espejo):** Mantiene la simetría de Simon (XOR) asegurando la dualidad del campo.
