@@ -5,7 +5,7 @@
 
 >═══════════════════════════════════════════════════════════════════════════════
 >ALGORITMO DE SIMON CUÁNTICO MEJORADO - PAQUETE COMPLETO `psimon`
->Versión 2.4 - Febrero 2025
+>Versión 2.5 - Febrero 2025
 >═══════════════════════════════════════════════════════════════════════════════
 
 ![Quantum Badge](https://img.shields.io/badge/Quantum-Smopsys-black)
@@ -214,7 +214,7 @@ Entropía de Entrelazamiento: -0.0000 bits
 
 ═══════════════════════════════════════════════════════════════════════════════
 
-Versión: 2.4
+Versión: 2.5
 Fecha: Febrero 5, 2025
 Autor: jakobmina Jacobo Tlacaelel Mina Rodriguez Smpsys QuoreMind
 Licencia: MIT
